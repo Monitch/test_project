@@ -1,67 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/Cat.dart';
+import 'package:flutter_test_app/Favorites.dart';
+import 'package:flutter_test_app/Profile.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+void main() {
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (BuildContext context) => MainScreen(),
+        '/second': (BuildContext context) => SecondScreen(),
+        '/catlist': (BuildContext context) => MyCat(),
+        '/favorites': (BuildContext context) => MyFavorites(),
+        '/profile': (BuildContext context) => MyProfile()
+      }));
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-  }
-
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body: Center(
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+        appBar: AppBar(
+          title: Text('Sign Up'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), //
-    );
+        body: Center(
+          child: RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/second');
+            },
+            child: Text('Sign up'),
+            textColor: Colors.white,
+            color: Colors.green,
+          ),
+        ));
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        body: Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/catlist');
+                  },
+                  child: Text('Cat')),
+              RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/favorites');
+                  },
+                  child: Text('Favorites')),
+              RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
+                  child: Text('Profile')),
+            ],
+          ),
+        ));
   }
 }
