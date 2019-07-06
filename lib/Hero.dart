@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 
 class MyHero extends StatefulWidget {
   final String tag;
+  final String url;
 
-  MyHero({Key key, @required this.tag})
-      : assert(tag != null);
+  MyHero({Key key, @required this.tag, @required this.url})
+      : assert(tag != null),
+        assert(url != null),
+        super(key: key);
   @override
   _MyHeroState createState() => _MyHeroState();
 }
@@ -16,7 +19,10 @@ class _MyHeroState extends State<MyHero> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  new MaterialApp(
+        title: "Hero Cat",
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
       body: GestureDetector(
         child: Center(
           child: Hero(
@@ -24,7 +30,7 @@ class _MyHeroState extends State<MyHero> {
             child:
                 ListView(
                   children: <Widget>[
-                    Image(image:AssetImage('Image/test.jpg')),
+                Image.network(widget.url),
                     Center(child: new Text('Test')),
                   ],
                 )),
@@ -33,6 +39,6 @@ class _MyHeroState extends State<MyHero> {
           Navigator.pop(context);
         },
       ),
-    );
+    ));
   }
 }
