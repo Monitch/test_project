@@ -5,10 +5,6 @@ class MyProfile extends StatefulWidget{
 }
 
 class _MyProfileState extends State<MyProfile>{
-  int n=0;
-  void increment(){
-    setState(() => n++);
-  }
 
   @override
   Widget build(BuildContext context) {
