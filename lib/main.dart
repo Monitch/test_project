@@ -27,6 +27,7 @@ class MainScreen extends StatelessWidget {
             child: Text('Sign up'),
             textColor: Colors.white,
             color: Colors.green,
+            splashColor: Colors.red,
           ),
         ));
   }

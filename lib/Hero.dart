@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class MyHero extends StatefulWidget {
   final String tag;
   final String url;
