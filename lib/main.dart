@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/Cat.dart';
-import 'package:flutter_test_app/Favorites.dart';
-import 'package:flutter_test_app/Profile.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -11,8 +9,6 @@ void main() {
         '/': (BuildContext context) => MainScreen(),
         '/second': (BuildContext context) => SecondScreen(),
         '/catlist': (BuildContext context) => MyCat(),
-        '/favorites': (BuildContext context) => MyFavorites(),
-        '/profile': (BuildContext context) => MyProfile()
       }));
 }
 
@@ -50,17 +46,7 @@ class SecondScreen extends StatelessWidget {
                     Navigator.pushNamed(context, '/catlist');
                   },
                   child: Text('Cat')),
-              RaisedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/favorites');
-                  },
-                  child: Text('Favorites')),
-              RaisedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/profile');
-                  },
-                  child: Text('Profile')),
-            ],
+            ]
           ),
         ));
   }

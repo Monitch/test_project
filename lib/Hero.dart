@@ -31,7 +31,7 @@ class _MyHeroState extends State<MyHero> {
                 ListView(
                   children: <Widget>[
                 Image.network(widget.url),
-                    Center(child: new Text('Test')),
+                    Center(child: new Text('Fact')),
                   ],
                 )),
         ),
